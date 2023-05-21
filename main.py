@@ -25,7 +25,7 @@ def main():
     print(os.getenv("DB_HOST"))
     print("hello there")
 
-. . .
+
 def add_data(first_name, last_name):
     try:
         statement = "INSERT INTO employees (first_name,last_name) VALUES (%s, %s)"
