@@ -1,1 +1,1 @@
-echo "web: scrape.py production" > Procfile
+echo "worker: scrape.py production" > Procfile
