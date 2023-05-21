@@ -7,5 +7,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT ["python", "scrape.py"]
-CMD ["production"]
+CMD ["python", "scrape.py", "production"]
