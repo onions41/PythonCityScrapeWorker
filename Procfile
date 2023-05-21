@@ -1,1 +1,1 @@
-worker: scrape.py production
+worker: scrape.py
