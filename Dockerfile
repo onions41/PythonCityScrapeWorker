@@ -6,7 +6,5 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 COPY . .
-WORKDIR /app
-COPY Procfile .
 
-# ENTRYPOINT ["python"]
+ENTRYPOINT ["python", "scrape.py", "production"]
