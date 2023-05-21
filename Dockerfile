@@ -9,4 +9,4 @@ COPY . .
 WORKDIR /app
 COPY Procfile .
 
-ENTRYPOINT ["python"]
+# ENTRYPOINT ["python"]
