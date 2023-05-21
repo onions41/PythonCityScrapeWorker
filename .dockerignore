@@ -1,0 +1,5 @@
+.gitignore
+.vscode
+notebook
+.env.*
+.python-version
