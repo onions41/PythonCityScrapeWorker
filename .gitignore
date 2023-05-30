@@ -2,3 +2,6 @@
 .vscode
 notebook
 .env.*
+
+# Pycache files
+*.pyc
