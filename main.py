@@ -1,7 +1,7 @@
-import os
-import sys
+import os, sys, logging
 import mysql.connector as database
 from dotenv import load_dotenv
+from modules.google_search import search
 
 
 def main():
@@ -33,4 +33,11 @@ def add_data(connection):
 
 
 if __name__ == "__main__":
+    logging.basicConfig(
+        filename="worker.log",
+        filemode="a",
+        format="%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s",
+        datefmt="%H:%M:%S",
+        level=logging.DEBUG,
+    )
     main()
