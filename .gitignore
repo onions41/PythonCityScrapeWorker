@@ -5,3 +5,6 @@ notebook
 
 # Pycache files
 *.pyc
+
+# log files
+*.log
