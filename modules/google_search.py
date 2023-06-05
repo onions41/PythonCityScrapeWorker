@@ -3,17 +3,18 @@ import requests
 from urllib.parse import urlparse, parse_qs
 from time import sleep
 from bs4 import BeautifulSoup
-from ..common.user_agents import get_useragent
+from .common.user_agents import get_useragent
 
 
+# search_string is exactly what you would type into google
 def search(search_string):
     # Sends search request to Google
     base_url = "https://www.google.com/search"
     headers = {
         "User-Agent": get_useragent()
     }  # Random user agents from a list of possibles
-    # Keep it simple. Using minimum params. num=25 because default is 10, which is too few
-    params = {"q": search_string, "num": "25"}
+    # Keep it simple. Using minimum params
+    params = {"q": search_string}
     res = requests.get(base_url, params=params, headers=headers)
 
     # Loops until there are no more next pages.
@@ -62,6 +63,7 @@ def search(search_string):
 
         # Means there is no next page
         if div_tag is None:
+            logging.info("Hit Break")
             break
 
         next_link = div_tag.find(
@@ -74,5 +76,6 @@ def search(search_string):
         for k, v in query_dict.items():
             params[k] = v[0]
 
+        page += 1
         sleep(5)  # Sleep 5 seconds. Not in a hurry, don't want to IP get banned.
         res = requests.get(base_url, params=params, headers=headers)

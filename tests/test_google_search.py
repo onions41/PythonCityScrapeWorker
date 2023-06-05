@@ -1,6 +1,6 @@
 import unittest
 from time import sleep
-from ..google_search import search as google_search
+from modules.google_search import search as google_search
 
 
 class TestGoogleSearch(unittest.TestCase):
