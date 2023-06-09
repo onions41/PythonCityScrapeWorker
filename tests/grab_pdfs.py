@@ -1,11 +1,11 @@
 import unittest
 from time import sleep
-from modules.get_page_links import get_page_links
+from grab_pdfs import grab_pdfs
 
 
 class TestGetPageLinks(unittest.TestCase):
     def test_basic(self):
-        get_page_links("abcde")
+        grab_pdfs("abcde")
 
     # def test_no_results(self):
     #     search_string = "site:council.vancouver.ca/20230511"
