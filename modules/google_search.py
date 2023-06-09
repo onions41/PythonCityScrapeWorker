@@ -15,6 +15,7 @@ def search(search_string):
     }  # Random user agents from a list of possibles
     # Keep it simple. Using minimum params
     params = {"q": search_string}
+    sleep(5)
     res = requests.get(base_url, params=params, headers=headers)
 
     # Loops until there are no more next pages.
