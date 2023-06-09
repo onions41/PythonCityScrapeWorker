@@ -20,7 +20,7 @@ def get_page_links(href):
     pattern = re.compile("min\.pdf$", flags=re.I)
     links = soup.find_all("a", href=pattern)
 
-    if not link:
+    if not links:
         logging.info("No resources found in " + href)
         return "no resources found"
 
@@ -30,6 +30,6 @@ def get_page_links(href):
         res = requests.get(resource_url, headers=headers)
         if res.status_code == 200:
             logging.info("Got " + resource_url)
-            yield res.content
+            yield {"resource_url": resource_url, "raw_data": res.content}
         else:
             logging.info("Status code not 200 for " + resource_url)
