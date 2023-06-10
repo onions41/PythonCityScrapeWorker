@@ -1,4 +1,4 @@
-import re, logging
+import re, logging, random
 import requests
 from urllib.parse import urlparse, parse_qs
 from time import sleep
@@ -15,7 +15,7 @@ def search(search_string):
     }  # Random user agents from a list of possibles
     # Keep it simple. Using minimum params
     params = {"q": search_string}
-    sleep(5)
+    sleep(random.randint(5, 10))
     res = requests.get(base_url, params=params, headers=headers)
 
     # Loops until there are no more next pages.
