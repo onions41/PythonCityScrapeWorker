@@ -15,4 +15,4 @@ def get_meeting_type_name(meeting_page_url):
     elif re.search("/pspc", meeting_page_url, flags=re.I):
         return "Policy and Strategic Priorities Standing Committee"
     else:
-        raise Exception("Could not determine the type of meeting from url")
+        raise Exception("Could not determine the type of meeting from url: %s" % (meeting_page_url))
