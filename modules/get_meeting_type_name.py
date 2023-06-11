@@ -1,4 +1,4 @@
-import re
+import re, logging
 
 
 def get_meeting_type_name(meeting_page_url):
@@ -14,5 +14,18 @@ def get_meeting_type_name(meeting_page_url):
         return "City Finance Standing Committee"
     elif re.search("/pspc", meeting_page_url, flags=re.I):
         return "Policy and Strategic Priorities Standing Committee"
+    elif re.search("/nom", meeting_page_url, flags=re.I):
+        return "Nomination Subcommittee"
+    elif re.search("/agc", meeting_page_url, flags=re.I):
+        return "Auditor General Committee"
+    elif re.search("/agrc", meeting_page_url, flags=re.I):
+        return "Auditor General Recruitment Committee"
+    elif re.search("/blhe", meeting_page_url, flags=re.I):
+        return "Business License Hearing"
+    elif re.search("/crev", meeting_page_url, flags=re.I):
+        return "Court of Revision"
+    elif re.search("/inau", meeting_page_url, flags=re.I):
+        return "Inaugural Council Meeting"
     else:
-        raise Exception("Could not determine the type of meeting from url: %s" % (meeting_page_url))
+        logging.warning("Unrecognized meeting abbreviation for meeting url: %s. Labeled it Public Hearing anyway." % meeting_page_url)
+        return "Public Hearing"
